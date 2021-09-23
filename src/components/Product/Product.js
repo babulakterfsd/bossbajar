@@ -31,8 +31,8 @@ const Product = (props) => {
                     </div>
                </div>
 
-               <div onClick={() => handleBuy(props.product)} className="buttonContainer my-3 d-block text-center">
-                <button className="btn btn-success px-3 px-lg-5 text-white mb-2 mb-md-0" id="buy-button"><i class="fas fa-cart-plus me-2"></i><span className="fw-bold">Add to Cart</span></button>
+               <div className="buttonContainer my-3 d-block text-center">
+                <button  onClick={() => handleBuy(props.product)}  className="btn btn-success px-3 px-lg-5 text-white mb-2 mb-md-0"><i class="fas fa-cart-plus me-2"></i><span className="fw-bold">Add to Cart</span></button>
                </div>
             </div>
           </div>
