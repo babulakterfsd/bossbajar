@@ -6,7 +6,7 @@ import Shop from './components/Shop/Shop';
 
 function App() {
   return (
-    <div className="full-body-container py-3">
+    <div className="full-body-container">
        <Header></Header>
        <Shop></Shop>
     </div>
