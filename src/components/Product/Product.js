@@ -3,6 +3,8 @@ import './Product.css'
 
 const Product = (props) => {
     const {name,img,price,stock,category,seller,features,star,starCount} = props.product;
+    const {handleBuy} = props;
+
     return (
         <div className="container-fluid singleProductContainer border-bottom border-1 border-muted py-5 rounded-2">
           <div className="row">
@@ -29,9 +31,8 @@ const Product = (props) => {
                     </div>
                </div>
 
-               <div className="buttonContainer my-3 d-flex flex-wrap justify-content-around">
+               <div onClick={() => handleBuy(props.product)} className="buttonContainer my-3 d-block text-center">
                 <button className="btn btn-success px-3 px-lg-5 text-white mb-2 mb-md-0" id="buy-button"><i class="fas fa-cart-plus me-2"></i><span className="fw-bold">Add to Cart</span></button>
-                <button className="btn btn-danger px-3 text-white" id="remove-button"><i class="fas fa-trash me-2"></i><span className="fw-bold">Remove from Cart</span></button>
                </div>
             </div>
           </div>
