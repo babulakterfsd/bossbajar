@@ -5,8 +5,6 @@ import logo from '../../images/logo.png'
 const Header = () => {
     return (
     <div className="header">
-     
-     {/* <img src={logo} className="d-block mx-auto" alt="Logo"/> */}
 
      <nav className="navbar navbar-expand-lg navbar-light bg-light">
      <a class="navbar-brand text-success fw-bolder ms-5" style={{fontSize: '25px'}} href="https://bossbajar-babulakterfsd.netlify.app">BossBajar</a>
