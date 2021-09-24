@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from 'react-rating';
 import './Product.css'
 
 const Product = (props) => {
@@ -23,6 +24,10 @@ const Product = (props) => {
 
                <div className="storeFeatureContainer my-3 d-flex flex-wrap justify-content-around">
                     <h6 className="text-black-50">only {stock} left in stock - order soon</h6>
+                    
+                    <Rating className="text-secondary" readonly emptySymbol="far fa-star"
+                    fullSymbol="fas fa-star" initialRating={star}></Rating>
+
                     <div className="featureContainer">
                         <h6>features:</h6>
                         <ul>
