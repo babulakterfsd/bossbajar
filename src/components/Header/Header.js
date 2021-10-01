@@ -1,30 +1,38 @@
-import React from 'react';
-import './Header.css'
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
-    return (
-    <div className="header">
-
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-     <a className="navbar-brand text-success fw-bolder ms-5" href="https://bossbajar-babulakterfsd.netlify.app">BossBajar</a>
-    <button className="navbar-toggler ms-auto btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ms-5 ms-md-auto me-md-5 mb-2 mb-lg-0 fw-bold text-secondary">
-        <li className="nav-item">
-          <a className="nav-link" href="/shop">Shop</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/orders">Orders</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/inventory">Inventory</a>
-        </li>
-      </ul>
-      </div>
-   </nav>
- </div>
+  return (
+    <div>
+      <Navbar className="py-4 bg-success" expand="md">
+        <Container fluid>
+          <Navbar.Brand className="text-secondary fw-bolder">
+            <Link
+              to="/Shop"
+              className="text-white text-decoration-none fw-bolder ms-lg-5"
+            >
+              BoosBajar
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav className="ms-auto my-2 my-md-0 me-lg-5 fw-bold">
+              <Link to="/Shop" className="text-decoration-none mx-2">
+                <span className="text-white">Shop</span>
+              </Link>
+              <Link to="/OrderReview" className="text-decoration-none  mx-2">
+                <span className="text-white">Orders</span>
+              </Link>
+              <Link to="/Inventory" className="text-decoration-none mx-lg-3">
+                <span className="text-white">Inventory</span>
+              </Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 

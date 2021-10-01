@@ -1,20 +1,9 @@
 import React from "react";
-import Rating from "react-rating";
-import "./Product.css";
 
-const Product = (props) => {
-  const {
-    name,
-    img,
-    price,
-    stock,
-    category,
-    seller,
-    features,
-    star,
-    starCount,
-  } = props.product;
-  const { handleBuy } = props;
+const ReviewProduct = (props) => {
+  const { name, price, quantity, img, category, seller, stock, features, key } =
+    props.product;
+  const { handleRemove } = props;
 
   return (
     <div className="container-fluid singleProductContainer border-bottom border-1 border-muted py-5 rounded-2">
@@ -37,10 +26,8 @@ const Product = (props) => {
               price: <span className="text-muted fw-bold">${price}</span>
             </h6>
             <h6>
-              rating:{" "}
-              <span className="text-muted fw-bold">
-                {star}/5 ({starCount} total reviews)
-              </span>
+              Order Quantity:{" "}
+              <span className="text-muted fw-bold">{quantity} piece</span>
             </h6>
           </div>
 
@@ -48,14 +35,6 @@ const Product = (props) => {
             <h6 className="text-black-50">
               only {stock} left in stock - order soon
             </h6>
-
-            <Rating
-              className="text-secondary"
-              readonly
-              emptySymbol="far fa-star"
-              fullSymbol="fas fa-star"
-              initialRating={star}
-            ></Rating>
 
             <div className="featureContainer">
               <h6>features:</h6>
@@ -73,11 +52,11 @@ const Product = (props) => {
 
           <div className="buttonContainer my-3 d-block text-center">
             <button
-              onClick={() => handleBuy(props.product)}
               className="btn btn-success px-3 px-lg-4 text-white mb-2 mb-md-0"
+              onClick={() => handleRemove(key)}
             >
-              <i className="fas fa-cart-plus me-2"></i>
-              <span className="fw-bold">Add to Cart</span>
+              <i className="fas fa-trash-alt me-2"></i>
+              <span className="fw-bold">Remove Product</span>
             </button>
           </div>
         </div>
@@ -86,4 +65,4 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+export default ReviewProduct;
