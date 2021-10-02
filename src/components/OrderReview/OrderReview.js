@@ -1,20 +1,33 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
 import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import ReviewProduct from "./ReviewProduct/ReviewProduct";
 import "./OrderReview.css";
 import Cart from "../Cart/Cart";
-import { removeFromDb } from "../../utilities/fakedb";
+import { clearTheCart, removeFromDb } from "../../utilities/fakedb";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const OrderReview = () => {
   const [products] = useProducts();
   const [cart, setCart] = useCart(products);
+  const history = useHistory();
 
   const handleRemove = (key) => {
     const newCart = cart.filter((product) => product.key !== key);
     setCart(newCart);
     removeFromDb(key);
+  };
+
+  const handlePlaceOrder = () => {
+    if (cart.length !== 0) {
+      history.push("/PlaceOrder");
+    } else {
+      history.push("/Shop");
+    }
+    setCart([]);
+    clearTheCart();
   };
 
   return (
@@ -29,10 +42,13 @@ const OrderReview = () => {
             ></ReviewProduct>
           ))}
         </div>
-        <div className="col-12 col-lg-3 mt-3">
-          <div className="cart-container">
-            <Cart cart={cart}></Cart>
-          </div>
+        <div className="col-12 col-lg-3 cart-container ">
+          <Cart cart={cart}>
+            <Button onClick={handlePlaceOrder} className="fw-bold btn-success">
+              {" "}
+              <i className="fas fa-money-check-alt me-1"></i> Place Order
+            </Button>
+          </Cart>
         </div>
       </Row>
     </Container>

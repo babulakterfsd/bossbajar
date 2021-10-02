@@ -1,9 +1,7 @@
-import { Button } from "react-bootstrap";
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Cart.css";
 
-const Cart = ({ cart }) => {
+const Cart = (props) => {
   let productsTotalPrice = 0,
     shippingAndHandling = 0,
     totalBeforeTax = 0,
@@ -11,7 +9,7 @@ const Cart = ({ cart }) => {
     orderTotal = 0,
     totalQuantity = 0;
 
-  for (let product of cart) {
+  for (let product of props.cart) {
     product.quantity = !product.quantity ? 1 : product.quantity;
     totalQuantity = totalQuantity + product.quantity;
 
@@ -53,12 +51,7 @@ const Cart = ({ cart }) => {
         <h5 className="text-muted">Total Bill:</h5>
         <h5 className="text-muted">${orderTotal.toFixed(2)}</h5>
       </div>
-      <Link to="/OrderReview" className="text-decoration-none text-white">
-        <Button className="fw-bold btn-success">
-          {" "}
-          <i className="fas fa-hand-holding-usd me-1 "></i> Review Your Order
-        </Button>
-      </Link>
+      {props.children}
     </div>
   );
 };

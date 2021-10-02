@@ -1,4 +1,6 @@
+import { Button } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -37,7 +39,16 @@ const Shop = () => {
   }, [products]);
 
   const handleBuy = (product) => {
-    const newCart = [...cart, product];
+    const exist = cart.find((item) => item.key === product.key);
+    let newCart = [];
+    if (exist) {
+      const remaining = cart.filter((item) => item.key !== product.key);
+      exist.quantity = exist.quantity + 1;
+      newCart = [...remaining, product];
+    } else {
+      product.quantity = 1;
+      newCart = [...cart, product];
+    }
     setCart(newCart);
     //add to local storage
     addToDb(product.key);
@@ -80,7 +91,18 @@ const Shop = () => {
           </div>
 
           <div className="col-12 col-lg-3 cart-container ">
-            <Cart cart={cart}></Cart>
+            <Cart cart={cart}>
+              <Link
+                to="/OrderReview"
+                className="text-decoration-none text-white"
+              >
+                <Button className="fw-bold btn-success">
+                  {" "}
+                  <i className="fas fa-hand-holding-usd me-1 "></i> Review Your
+                  Order
+                </Button>
+              </Link>
+            </Cart>
           </div>
         </div>
       </div>
