@@ -6,7 +6,6 @@ import ReviewProduct from "./ReviewProduct/ReviewProduct";
 import "./OrderReview.css";
 import Cart from "../Cart/Cart";
 import { clearTheCart, removeFromDb } from "../../utilities/fakedb";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 
 const OrderReview = () => {
