@@ -7,7 +7,7 @@ const Register = () => {
     <Container>
       <Row style={{ minHeight: "100vh" }}>
         <div className="col-12 col-md-10 col-lg-8 mx-auto">
-          <Form className="shadow-sm p-5 pt-2 mt-5 text-secondary">
+          <Form className="shadow-sm px-2 py-4 p-sm-5 mt-5 text-secondary">
             <h2> Please, Register!</h2>
             <Row className="mb-3">
               <Form.Group className="mb-3" controlId="formGridName">
@@ -35,7 +35,7 @@ const Register = () => {
               <Form.Check type="checkbox" label="Subscribe to our newsletter" />
             </Form.Group>
 
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-center">
               <Button
                 variant="success"
                 type="submit"
