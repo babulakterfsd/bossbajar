@@ -5,7 +5,7 @@ import animatedImage from "../../images/giphy.gif";
 const PlaceOrder = () => {
   return (
     <Container>
-      <Row>
+      <Row style={{ minHeight: "100vh" }}>
         <div className="col-12 col-md-8 col-lg-6 mx-auto">
           <img
             src={animatedImage}

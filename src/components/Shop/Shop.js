@@ -64,7 +64,7 @@ const Shop = () => {
 
   return (
     <div>
-      <div className="container mt-lg-3">
+      <div className="container mt-lg-3" style={{ minHeight: "100vh" }}>
         <div className="row">
           <div className="col-12 col-lg-9 product-container">
             <div className="productsHeader d-flex justify-content-around flex-wrap">
@@ -93,7 +93,7 @@ const Shop = () => {
           <div className="col-12 col-lg-3 cart-container ">
             <Cart cart={cart}>
               <Link
-                to="/OrderReview"
+                to="/orderReview"
                 className="text-decoration-none text-white"
               >
                 <Button className="fw-bold btn-success">

@@ -31,7 +31,7 @@ const OrderReview = () => {
 
   return (
     <Container>
-      <Row>
+      <Row style={{ minHeight: "100vh" }}>
         <div className="col-12 col-lg-9 product-container">
           {cart.map((product) => (
             <ReviewProduct
