@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Container fluid>
       <Row>
-        <div className="footer py-5 bg-dark d-flex flex-wrap justify-content-around">
+        <div className="footer py-5 mt-5 bg-dark d-flex flex-wrap justify-content-around">
           <div className="col-12 col-md-3 text-center">
             {/* Social Icons */}
             <div className="social-links mb-3">

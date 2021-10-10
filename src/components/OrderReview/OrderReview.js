@@ -21,12 +21,12 @@ const OrderReview = () => {
 
   const handlePlaceOrder = () => {
     if (cart.length !== 0) {
-      history.push("/PlaceOrder");
+      history.push("/shipping");
     } else {
       history.push("/Shop");
     }
-    setCart([]);
-    clearTheCart();
+    // setCart([]);
+    // clearTheCart();
   };
 
   return (
@@ -45,7 +45,8 @@ const OrderReview = () => {
           <Cart cart={cart}>
             <Button onClick={handlePlaceOrder} className="fw-bold btn-success">
               {" "}
-              <i className="fas fa-money-check-alt me-1"></i> Place Order
+              <i className="fas fa-money-check-alt me-1"></i> Proceed to
+              Shipping
             </Button>
           </Cart>
         </div>

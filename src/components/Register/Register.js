@@ -42,7 +42,7 @@ const Register = () => {
                 value="submit"
                 className="px-3 py-2 fw-bold"
               >
-                <i className="fas fa-user-plus me-1 text-warning"></i>
+                <i className="fas fa-user-plus me-2 text-warning"></i>
                 SignUp
               </Button>
               <Link to="/login">Already Registered?</Link>

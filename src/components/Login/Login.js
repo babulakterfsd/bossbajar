@@ -1,10 +1,19 @@
 import React from "react";
 import { Container, Form, Row, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const { signInUsingGoogle } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const redirect_uri = location.state?.from || "/";
+
+  const handleGoogleLogin = () => {
+    signInUsingGoogle().then(() => {
+      history.push(redirect_uri);
+    });
+  };
   return (
     <Container>
       <Row style={{ minHeight: "100vh" }}>
@@ -33,7 +42,7 @@ const Login = () => {
                 value="submit"
                 className="px-3 py-2 fw-bold"
               >
-                <i className="fas fa-user-plus me-1 text-warning"></i>
+                <i className="fas fa-user-plus me-2 text-warning"></i>
                 SignIn
               </Button>
               <Link to="/register">Don't Have Account?</Link>
@@ -44,13 +53,13 @@ const Login = () => {
 
             <div className="button-container d-flex justify-content-around flex-wrap ">
               <Button
-                onClick={signInUsingGoogle}
-                className="btn-success fw-semi-bold  me-1 mb-3 mb-md-0"
+                onClick={handleGoogleLogin}
+                className="btn-success fw-semi-bold  me-1 mb-3 mb-lg-0"
               >
                 <i className="fab fa-google me-2 text-warning"></i>
                 SignIn with Google
               </Button>
-              <Button className="btn-success fw-semi-bold  me-1 mb-3 mb-md-0">
+              <Button className="btn-success fw-semi-bold  me-1 mb-3 mb-lg-0">
                 <i className="fab fa-facebook me-2 text-warning"></i>
                 SignIn with Facebook
               </Button>

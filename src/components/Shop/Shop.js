@@ -67,7 +67,7 @@ const Shop = () => {
       <div className="container mt-lg-3" style={{ minHeight: "100vh" }}>
         <div className="row">
           <div className="col-12 col-lg-9 product-container">
-            <div className="productsHeader d-flex justify-content-around flex-wrap mt-3">
+            <div className="productsHeader d-flex align-items-center justify-content-around flex-wrap mt-3">
               <h2 className="text-secondary fw-bold mb-md-3 ">Products</h2>
               <div className="searchContainer flex-grow-1 mx-3">
                 <input

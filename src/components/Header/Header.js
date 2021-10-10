@@ -36,9 +36,15 @@ const Header = () => {
               </Link>
               <Link
                 to="/inventory"
-                className="text-decoration-none mx-md-3 mb-2 mb-md-0"
+                className="text-decoration-none mx-2 mb-2 mb-md-0"
               >
                 <span className="text-white">Inventory</span>
+              </Link>
+              <Link
+                to="/shipping"
+                className="text-decoration-none mx-2 mb-2 mb-md-0"
+              >
+                <span className="text-white">Shipping</span>
               </Link>
               <div className="user-state-in-header ms-md-5">
                 {user?.email || user?.displayName ? (
