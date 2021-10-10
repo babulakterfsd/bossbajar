@@ -54,16 +54,16 @@ const Login = () => {
             <div className="button-container d-flex justify-content-around flex-wrap ">
               <Button
                 onClick={handleGoogleLogin}
-                className="btn-success fw-semi-bold  me-1 mb-3 mb-lg-0"
+                className="btn-success fw-semi-bold  me-1 mb-3"
               >
                 <i className="fab fa-google me-2 text-warning"></i>
                 SignIn with Google
               </Button>
-              <Button className="btn-success fw-semi-bold  me-1 mb-3 mb-lg-0">
+              <Button className="btn-success fw-semi-bold  me-1 mb-3">
                 <i className="fab fa-facebook me-2 text-warning"></i>
                 SignIn with Facebook
               </Button>
-              <Button className="btn-success fw-semi-bold">
+              <Button className="btn-success fw-semi-bold mb-3">
                 <i className="fab fa-github me-2 text-warning"></i>
                 SignIn with Github
               </Button>
