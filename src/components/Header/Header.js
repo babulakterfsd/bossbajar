@@ -16,6 +16,7 @@ const Header = () => {
               to="/"
               className="text-white text-decoration-none fw-bolder ms-md-5"
             >
+              <i className="fas fa-handshake me-1 text-warning"></i>
               BossBajar
             </Link>
           </Navbar.Brand>
