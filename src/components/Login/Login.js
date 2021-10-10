@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Form, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { user, signInUsingGoogle } = useFirebase();
+  const { signInUsingGoogle } = useAuth();
   return (
     <Container>
       <Row style={{ minHeight: "100vh" }}>

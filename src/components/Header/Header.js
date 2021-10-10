@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useFireBase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
-  const { user, logOut } = useFireBase();
+  const { user, logOut } = useAuth();
+
   return (
     <div>
       <Navbar className="py-4 bg-success" expand="md">

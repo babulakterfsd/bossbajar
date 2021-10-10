@@ -19,15 +19,12 @@ const useFirebase = () => {
 
   const signInUsingGoogle = () => {
     signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        console.log(result.user);
-      })
+      .then((result) => {})
       .catch((error) => setError(error.message));
   };
 
   const logOut = () => {
-    signOut(auth).then((result) => {
-      console.log("logged out");
+    signOut(auth).then(() => {
       setUser({});
     });
   };
