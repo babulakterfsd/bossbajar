@@ -7,7 +7,10 @@ const Register = () => {
     <Container>
       <Row style={{ minHeight: "100vh" }}>
         <div className="col-12 col-md-10 col-lg-8 mx-auto">
-          <Form className="shadow-sm px-2 py-4 p-sm-5 mt-5 text-secondary">
+          <Form
+            onSubmit={(event) => event.preventDefault()}
+            className="shadow-sm px-2 py-4 p-sm-5 mt-5 text-secondary"
+          >
             <h2> Please, Register!</h2>
             <Row className="mb-3">
               <Form.Group className="mb-3" controlId="formGridName">

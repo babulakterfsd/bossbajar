@@ -4,21 +4,26 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { signInUsingGoogle } = useAuth();
+  const { signInUsingGoogle, setIsLoading } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirect_uri = location.state?.from || "/";
 
   const handleGoogleLogin = () => {
-    signInUsingGoogle().then(() => {
-      history.push(redirect_uri);
-    });
+    signInUsingGoogle()
+      .then(() => {
+        history.push(redirect_uri);
+      })
+      .finally(() => setIsLoading(false));
   };
   return (
     <Container>
       <Row style={{ minHeight: "100vh" }}>
         <div className="col-12 col-md-10 col-lg-8 mx-auto">
-          <Form className="shadow-sm px-2 py-4 p-sm-5 pt-2 my-5 text-secondary">
+          <Form
+            onSubmit={(event) => event.preventDefault()}
+            className="shadow-sm px-2 py-4 p-sm-5 pt-2 my-5 text-secondary"
+          >
             <h2>Please, LogIn!</h2>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
