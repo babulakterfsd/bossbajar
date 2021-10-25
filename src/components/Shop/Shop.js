@@ -5,20 +5,27 @@ import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import useCart from "../../hooks/useCart";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useCart();
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
   const [displayProducts, setDisplayProducts] = useState([]);
 
+  const size = 10;
   useEffect(() => {
-    fetch("./products.json")
+    fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
       .then((response) => response.json())
-      .then((products) => {
-        setProducts(products);
-        setDisplayProducts(products);
+      .then((data) => {
+        setProducts(data.products);
+        setDisplayProducts(data.products);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
       });
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     if (products.length) {
@@ -36,7 +43,7 @@ const Shop = () => {
       }
       setCart(storedCart);
     }
-  }, [products]);
+  }, []);
 
   const handleBuy = (product) => {
     const exist = cart.find((item) => item.key === product.key);
@@ -86,6 +93,21 @@ const Shop = () => {
                 handleBuy={handleBuy}
               ></Product>
             ))}
+            <div className="pagination d-flex justify-content-center mb-5 ">
+              {[...Array(pageCount).keys()].map((number) => (
+                <Button
+                  key={number}
+                  onClick={() => setPage(number)}
+                  className={
+                    number === page
+                      ? "fw-bolder btn-success text-warning mx-1 my-2 px-2 py-1 shadow-none"
+                      : "btn-success mx-1 my-2 px-2 py-1 shadow-none"
+                  }
+                >
+                  {number + 1}
+                </Button>
+              ))}
+            </div>
           </div>
 
           <div className="col-12 col-lg-3 cart-container ">

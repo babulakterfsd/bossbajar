@@ -2,16 +2,37 @@ import React from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {clearTheCart, getStoredCart} from '../../utilities/fakedb'
 import useAuth from "../../hooks/useAuth";
 
 const Shipping = () => {
   const { user } = useAuth();
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {};
+  const onSubmit = data => {
+      const savedCart = getStoredCart();
+      data.order = savedCart;
+
+      fetch(`http://localhost:5000/orders`, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        if(result.insertedId) {
+          alert('Order Processed Successfully !');
+          clearTheCart();
+          reset();
+        }
+      })
+  };
   return (
     <Container>
       <Row style={{ minHeight: "100vh" }}>
@@ -98,11 +119,21 @@ const Shipping = () => {
               />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="formGridAddress">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="+88-01740-020464"
+                {...register("phone", { required: true })}
+                {...(errors.address && <span>This field is required</span>)}
+              />
+            </Form.Group>
+
             <Form.Group className="mb-3" id="formGridCheckbox">
               <Form.Check type="checkbox" label="Cash On Delivery" />
             </Form.Group>
 
-            <Link to="/placeOrder">
+             {/* <Link to="/placeOrder"> */}
               <Button
                 variant="success"
                 type="submit"
@@ -111,7 +142,7 @@ const Shipping = () => {
                 <i className="fas fa-clipboard-check text-warning me-2"></i>
                 Confirm Order
               </Button>
-            </Link>
+            {/* </Link>  */}
           </Form>
         </div>
 
