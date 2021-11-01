@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
@@ -68,6 +68,14 @@ const Shop = () => {
     );
     setDisplayProducts(filteredProducts);
   };
+
+  if (products.length === 0) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{minHeight: '100vh'}}>
+        <Spinner animation="border" variant="success" />
+      </div>
+    );
+  }
 
   return (
     <div>

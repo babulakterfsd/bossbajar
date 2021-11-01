@@ -33,7 +33,7 @@ const Header = () => {
                 to="/orderReview"
                 className="text-decoration-none  mx-2 mb-2 mb-md-0"
               >
-                <span className="text-white">Orders</span>
+                <span className="text-white">OrderReview</span>
               </Link>
               <Link
                 to="/inventory"
@@ -47,6 +47,16 @@ const Header = () => {
               >
                 <span className="text-white">Shipping</span>
               </Link>
+
+              {(user?.email || user?.displayName) && (
+                <Link
+                  to="/orders"
+                  className="text-decoration-none mx-2 mb-2 mb-md-0"
+                >
+                  <span className="text-white">Orders</span>
+                </Link>
+              )}
+
               <div className="user-state-in-header ms-md-5">
                 {user?.email || user?.displayName ? (
                   <div className="loggedin">
