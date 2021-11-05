@@ -16,7 +16,7 @@ const Shop = () => {
 
   const size = 10;
   useEffect(() => {
-    fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+    fetch(`https://guarded-dawn-79467.herokuapp.com/products?page=${page}&&size=${size}`)
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);

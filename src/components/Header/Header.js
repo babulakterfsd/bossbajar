@@ -36,12 +36,6 @@ const Header = () => {
                 <span className="text-white">OrderReview</span>
               </Link>
               <Link
-                to="/inventory"
-                className="text-decoration-none mx-2 mb-2 mb-md-0"
-              >
-                <span className="text-white">Inventory</span>
-              </Link>
-              <Link
                 to="/shipping"
                 className="text-decoration-none mx-2 mb-2 mb-md-0"
               >

@@ -25,6 +25,7 @@ const Login = () => {
             className="shadow-sm px-2 py-4 p-sm-5 pt-2 my-5 text-secondary"
           >
             <h2>Please, LogIn!</h2>
+            <p className="text-danger">Currently, We're allowing only Signing with Google</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter Your Email" />

@@ -29,9 +29,6 @@ function App() {
             <Route path="/shop">
               <Shop></Shop>
             </Route>
-            <PrivateRoute path="/inventory">
-              <Inventory></Inventory>
-            </PrivateRoute>
             <PrivateRoute path="/shipping">
               <Shipping></Shipping>
             </PrivateRoute>

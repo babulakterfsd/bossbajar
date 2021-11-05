@@ -10,7 +10,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+    fetch(`https://guarded-dawn-79467.herokuapp.com/orders?email=${user?.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('idToken')}`
         }
@@ -33,14 +33,8 @@ const Orders = () => {
             <h2 className="text-center">
               You have placed {orders.length} order{" "}
             </h2>
+            <p className="text-center">We'll deliver as soon as possible</p>
           </div>
-        </Row>
-        <Row>
-          {orders.map((order) => (
-            <li key={order._id}>
-              {order?.name} : {order?.email}{" "}
-            </li>
-          ))}
         </Row>
       </Container>
     </section>

@@ -1,11 +1,12 @@
 import React from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import {clearTheCart, getStoredCart} from '../../utilities/fakedb'
 import useAuth from "../../hooks/useAuth";
 
 const Shipping = () => {
+  const history = useHistory();
   const { user } = useAuth();
   const {
     register,
@@ -17,7 +18,7 @@ const Shipping = () => {
       const savedCart = getStoredCart();
       data.order = savedCart;
 
-      fetch(`http://localhost:5000/orders`, {
+      fetch(`https://guarded-dawn-79467.herokuapp.com/orders`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -29,6 +30,7 @@ const Shipping = () => {
         if(result.insertedId) {
           alert('Order Processed Successfully !');
           clearTheCart();
+          history.push('/orders')
           reset();
         }
       })

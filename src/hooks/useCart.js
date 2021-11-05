@@ -7,7 +7,7 @@ const useCart = () => {
   useEffect(() => {
     const savedCart = getStoredCart();
     const keys = Object.keys(savedCart);
-    fetch("http://localhost:5000/products/byKeys", {
+    fetch("https://guarded-dawn-79467.herokuapp.com/products/byKeys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
