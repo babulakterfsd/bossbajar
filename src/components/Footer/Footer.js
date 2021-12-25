@@ -12,7 +12,7 @@ const Footer = () => {
               <h6 className="text-white ms-2">We are social</h6>
               <a
                 rel="noopener noreferrer"
-                href="https://facebook.com/babulakterfsd"
+                href="https://facebook.com/fsdbabulakter"
                 target="_blank"
                 className="text-success"
               >
