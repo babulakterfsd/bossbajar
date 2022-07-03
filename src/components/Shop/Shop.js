@@ -67,6 +67,9 @@ const Shop = () => {
       product.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setDisplayProducts(filteredProducts);
+    if(filteredProducts.length === 0) {
+      console.log('no prod found')
+    }
   };
 
   if (products.length === 0) {
@@ -94,13 +97,16 @@ const Shop = () => {
               </div>
             </div>
 
-            {displayProducts.map((product) => (
-              <Product
-                key={product.key}
-                product={product}
-                handleBuy={handleBuy}
-              ></Product>
-            ))}
+            {
+              displayProducts.length === 0 ? 'No product found' : (displayProducts.map((product) => (
+                <Product
+                  key={product.key}
+                  product={product}
+                  handleBuy={handleBuy}
+                ></Product>
+              )))
+            }
+
             <div className="pagination d-flex justify-content-center mb-5 ">
               {[...Array(pageCount).keys()].map((number) => (
                 <Button
